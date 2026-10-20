@@ -11,7 +11,7 @@ check-dashes` enforces it.
 ## Generic by design
 
 macaw serves any AWS Organization. Nothing committed may name a particular
-organization's accounts, aliases, colours, IDs, SCPs or profiles: all of that
+organization's accounts, aliases, colors, IDs, SCPs or profiles: all of that
 lives in the gitignored `terraform.tfvars` (or the file `VARS` points at), and
 the per-account Terraform is generated from it into the gitignored
 `accounts.gen.tf` by `scripts/generate.sh`. Examples use placeholder IDs

@@ -25,7 +25,7 @@
 
 locals {
   # One entry per level of the path (root, each OU, the account), each holding
-  # the statements of every SCP attached there, normalised so that the fields
+  # the statements of every SCP attached there, normalized so that the fields
   # IAM allows as either a string or a list are always lists.
   levels = [
     for l in var.policy_levels : {

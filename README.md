@@ -10,11 +10,11 @@ macaw uses [AWS User Experience Customization](https://docs.aws.amazon.com/awsco
 (UXC), through the Terraform AWS provider's `aws_uxc_account_customizations`
 resource, to set three things in each account you list:
 
-- **account colour**, shown in the console navigation bar
+- **account color**, shown in the console navigation bar
 - **visible Regions** in the Region selector
 - **visible services** in console navigation
 
-You choose each account's colour. The visible Regions and services are
+You choose each account's color. The visible Regions and services are
 **derived from your organization's SCPs**, so each account's console shows what
 the organization lets that account use, and follows the SCPs when they change.
 
@@ -46,12 +46,12 @@ make bootstrap-apply                  # prints the profile to add next
 cp terraform.tfvars.example terraform.tfvars   # describe your organization
 make login        # aws sso login for the management profile
 make init
-make plan         # review: each account's colour, Regions and services
+make plan         # review: each account's color, Regions and services
 make apply
 make show         # what each account's console now reports
 ```
 
-The colour appears on the next console page load.
+The color appears on the next console page load.
 
 `make plan` prints one output per account with its resolved lists, and `make
 hidden ACCOUNT=<alias>` lists just the services that account will hide. Review
@@ -61,7 +61,7 @@ expect.
 ## Configuration
 
 `terraform.tfvars` is the whole of one organization's setup. Nothing else in
-the repository names an account, a colour or an ID.
+the repository names an account, a color or an ID.
 
 ```hcl
 management_account_id = "111111111111"
@@ -86,7 +86,7 @@ accounts = {
 | `member_role_name` | Role assumed in member accounts. Default `OrganizationAccountAccessRole`. |
 | `accounts.<alias>.id` | The account. The alias names its module, its output and the `ACCOUNT=` argument of make targets. |
 | `accounts.<alias>.color` | `none`, `red`, `darkBlue`, `lightBlue`, `green`, `yellow`, `orange`, `pink`, `purple` or `teal`. Default `none`. |
-| `accounts.<alias>.derive_visibility` | `false` sets only the colour and leaves Regions and services at the console default. Default `true`. |
+| `accounts.<alias>.derive_visibility` | `false` sets only the color and leaves Regions and services at the console default. Default `true`. |
 | `accounts.<alias>.extra_visible_services` | Console service ids to show although no SCP allows them. `make services` lists valid ids. |
 
 Accounts not listed are never touched. The management account is optional.
@@ -101,7 +101,7 @@ make teardown                     # every listed account, after typing 'yes'
 make teardown ACCOUNT=production  # one account
 ```
 
-Each account is back to no colour, every Region and every service within
+Each account is back to no color, every Region and every service within
 seconds; reload open console tabs. It uses only the AWS CLI and `make login`,
 not Terraform, so it works when a plan does not. It reads each account back
 afterwards and names any it could not reset.
@@ -118,7 +118,7 @@ there:
   working, which is why it is not the first step.
 
 **Without this repository**, sign in to the account and use the console:
-account menu > Account > Account display settings > None for the colour, and
+account menu > Account > Account display settings > None for the color, and
 [Unified Settings](https://console.aws.amazon.com/settings/home) > Edit > All
 for Regions and services. Or with the CLI, as that account:
 

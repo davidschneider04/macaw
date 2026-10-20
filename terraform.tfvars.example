@@ -38,7 +38,7 @@ accounts = {
     color = "green"
   }
 
-  # Colour only; Regions and services stay at the console default.
+  # Color only; Regions and services stay at the console default.
   sandbox = {
     id                = "444444444444"
     color             = "yellow"
