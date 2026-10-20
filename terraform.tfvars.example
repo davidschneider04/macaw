@@ -1,0 +1,47 @@
+# One organization's whole setup. Copy to terraform.tfvars (gitignored), fill
+# in, then `make plan`. Everything else in the repository is generic.
+#
+# `aws configure list-profiles` shows the profile names available;
+# `aws organizations list-accounts` the account IDs.
+
+# The organization's management account, and a CLI profile for it. That
+# profile is the only credential used: member accounts are reached by assuming
+# member_role_name from it. Use the permission set bootstrap/ creates, which
+# can do nothing but what macaw needs; see README, "Least-privilege setup".
+management_account_id = "111111111111"
+management_profile    = "MacawConsole-111111111111"
+
+# The role bootstrap/ deploys is the default. Without the bootstrap, use the
+# organization's administrator role instead, and read the README first.
+# member_role_name = "OrganizationAccountAccessRole"
+
+# Every account to customize. The key is an alias used for its module, its
+# output and the ACCOUNT= argument of make targets: lowercase, digits and
+# underscores. Leave an account out and macaw never touches it.
+accounts = {
+  # The management account itself is optional. SCPs never bind it, so its
+  # derived list is what the organization allows elsewhere plus the services
+  # with trusted access; add anything else it needs here.
+  management = {
+    id                     = "111111111111"
+    color                  = "red"
+    extra_visible_services = ["support", "health-dashboard"]
+  }
+
+  production = {
+    id    = "222222222222"
+    color = "orange"
+  }
+
+  development = {
+    id    = "333333333333"
+    color = "green"
+  }
+
+  # Colour only; Regions and services stay at the console default.
+  sandbox = {
+    id                = "444444444444"
+    color             = "yellow"
+    derive_visibility = false
+  }
+}

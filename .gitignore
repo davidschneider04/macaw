@@ -1,0 +1,19 @@
+# terraform
+# Written by scripts/generate.sh from terraform.tfvars, so it names this
+# organization's accounts. See README, "How the configuration is generated".
+accounts.gen.tf
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfplan
+.terraform.lock.hcl.bak
+
+# terraform.tfvars maps account aliases to account IDs and SSO profile names,
+# which embed the account ID. Kept out of the repository; see
+# terraform.tfvars.example.
+*.tfvars
+!*.tfvars.example
+
+# editor / os
+.DS_Store
+*.swp

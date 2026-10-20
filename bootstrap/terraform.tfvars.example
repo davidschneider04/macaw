@@ -1,0 +1,16 @@
+# Copy to bootstrap/terraform.tfvars (gitignored). Applied once, with an
+# administrator profile for the management account.
+
+admin_profile = "my-admin-profile"
+
+# Who gets the macaw permission set, in the management account.
+assign_to_users = ["my.username"]
+# assign_to_groups = ["Platform Admins"]
+
+# Defaults, shown for reference. permission_set_name is what member accounts
+# trust; member_role_name must match macaw's own setting.
+# permission_set_name = "MacawConsole"
+# member_role_name    = "macaw-console"
+
+# Leave empty for every member account in the organization.
+# target_ou_ids = ["ou-abcd-11111111"]
