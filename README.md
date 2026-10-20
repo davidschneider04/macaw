@@ -4,7 +4,7 @@
 
 # macaw
 
-AWS Management Console customizations for an AWS Organization, as code.
+**M**odular **A**djustable **C**onsole for **A**mazon **W**eb **S**ervices
 
 macaw uses [AWS User Experience Customization](https://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/uxc.html)
 (UXC), through the Terraform AWS provider's `aws_uxc_account_customizations`
