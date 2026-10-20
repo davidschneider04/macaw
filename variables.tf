@@ -1,6 +1,6 @@
 # Everything specific to one organization is an input here, set in
 # terraform.tfvars (gitignored). The committed code names no account, no
-# colour and no ID, so the same checkout serves any organization.
+# color and no ID, so the same checkout serves any organization.
 #
 # scripts/generate.sh also reads this file, alone, to learn the account
 # aliases; keep it free of references to anything else in the configuration.
@@ -64,7 +64,7 @@ variable "accounts" {
       color                   none, red, darkBlue, lightBlue, green, yellow,
                               orange, pink, purple or teal. Default none.
       derive_visibility       false leaves Regions and services at the
-                              console default and sets only the colour.
+                              console default and sets only the color.
                               Default true.
       extra_visible_services  Console service ids to show although no SCP
                               allows them. Mostly for the management account,

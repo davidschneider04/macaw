@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Put every account's console back to the AWS defaults: no colour, every Region
+# Put every account's console back to the AWS defaults: no color, every Region
 # and every service visible. The break-glass for when a customization gets in
 # the way.
 #
@@ -65,7 +65,7 @@ awsc sts get-caller-identity --profile "$profile" --query Account --output text 
   exit 1
 }
 
-echo "Resetting the console to AWS defaults (no colour, all Regions, all services) for:"
+echo "Resetting the console to AWS defaults (no color, all Regions, all services) for:"
 awk '{ printf "  %-20s %s\n", $1, $2 }' <<<"$accounts"
 if [ "${YES:-}" != 1 ]; then
   read -r -p "Type 'yes' to continue: " answer
@@ -112,7 +112,7 @@ if [ ${#failed[@]} -gt 0 ]; then
 
 Not reset: ${failed[*]}
 Reset those by hand, signed in to each account:
-  colour               account menu > Account > Account display settings > None
+  color                account menu > Account > Account display settings > None
   Regions and services https://console.aws.amazon.com/settings/home > Edit > All
 EOF
   exit 1

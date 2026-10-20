@@ -10,7 +10,7 @@ variable "admin_profile" {
 variable "permission_set_name" {
   description = <<-EOT
     Name of the Identity Center permission set macaw runs as. It is also how
-    member accounts recognise macaw: their role trusts only sessions of this
+    member accounts recognize macaw: their role trusts only sessions of this
     permission set, so renaming it means re-applying, which redeploys the
     member role with the new name in its trust policy.
   EOT
