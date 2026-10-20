@@ -8,7 +8,7 @@ variable "derive_visibility" {
   description = <<-EOT
     Derive visible Regions and services from the organization's SCPs. False
     leaves both at the console default (everything visible) and sets only the
-    colour.
+    color.
   EOT
   type        = bool
   default     = true
